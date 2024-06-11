@@ -10,7 +10,7 @@ def create_blog_post(title, content, category_id):
     }
     data = {
         "title": title,
-        "content": content,
+        "content": f'<div style="background-color: #191919; color: #ffffff; padding: 20px;">{content}</div>',
         "categories": [category_id],
         "status": "publish"
     }
@@ -22,5 +22,3 @@ def create_blog_post(title, content, category_id):
         print(f"Response content: {response.content}")
         raise
     return response.json()
-
-
