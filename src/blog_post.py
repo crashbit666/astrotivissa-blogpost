@@ -9,7 +9,7 @@ def create_blog_post(title, thumbnail, content, category_id):
         "Content-Type": "application/json"
     }
 
-    # Usar shortcodes de Divi para crear la estructura de la entrada del blog
+    # Use shortcodes to create a Divi layout
     divi_content = f"""
     [et_pb_section bb_built="1" _builder_version="4.9.10" background_color="transparent"]
         [et_pb_row]

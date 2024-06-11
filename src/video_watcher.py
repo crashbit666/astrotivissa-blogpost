@@ -75,23 +75,23 @@ def process_new_video(video_id, blog_title, thumbnail_url):
     from src.text_summary import summarize_text
     from src.blog_post import create_blog_post
 
-    # Obtener transcripción del video
+    # Obtain video transcript
     transcript = get_video_transcript(video_id)
     if transcript == "No transcript available":
         print(f"Transcript not available for video {video_id}. Skipping.")
         return
 
-    print(f"Transcript for video {video_id}: {transcript[:100]}...")  # Imprimir los primeros 100 caracteres de la transcripción
+    print(f"Transcript for video {video_id}: {transcript[:100]}...")  # Print the first 100 characters of the transcript
 
-    # Generar resumen de la transcripción
+    # Generate a summary of the video content
     summary = summarize_text(transcript)
     print(f"Summary for video {video_id}: {summary}")
 
-    # Crear contenido del blog con la imagen centrada al principio
-    content_with_image = f'[et_pb_image text_orientation="center" src="{thumbnail_url}" _builder_version="4.9.10"][/et_pb_image]\n\n<div style="color: #ffffff;">{summary}</div>'
+    # Not used, only for testing purposes
+    # content_with_image = f'[et_pb_image text_orientation="center" src="{thumbnail_url}" _builder_version="4.9.10"][/et_pb_image]\n\n<div style="color: #ffffff;">{summary}</div>'
 
-    # Crear entrada en el blog en la categoría "reviews"
-    category_id = 283  # ID de la categoría "reviews" en el blog
+    # Create a new blog post with review category
+    category_id = 283  # Review category ID
     post_response = create_blog_post(blog_title, thumbnail_url, summary, category_id)
     print(f"Blog post created for video {video_id}: {post_response}")
 
@@ -100,4 +100,3 @@ def process_new_video(video_id, blog_title, thumbnail_url):
 
 if __name__ == "__main__":
     watch_new_videos()
-
