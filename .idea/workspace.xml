@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0198f4d-7280-4a1a-aea8-63ae8230a1e3" name="Changes" comment="Initial commit">
+    <list default="true" id="d0198f4d-7280-4a1a-aea8-63ae8230a1e3" name="Changes" comment="Add thumbnails">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/blog_post.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/blog_post.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/text_summary.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/text_summary.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/video_watcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_watcher.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,8 +65,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.17011.127" />
-        <option value="bundled-python-sdk-48aec45f0201-7e9c3bbb6e34-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.17011.127" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.17890.14" />
+        <option value="bundled-python-sdk-5b207ade9991-7e9c3bbb6e34-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.17890.14" />
       </set>
     </attachedChunks>
   </component>
@@ -86,6 +85,7 @@
       <workItem from="1717269046377" duration="10610000" />
       <workItem from="1717937552033" duration="24000" />
       <workItem from="1717937588552" duration="7834000" />
+      <workItem from="1718093251297" duration="4054000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -95,7 +95,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717279857592</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add thumbnails">
+      <option name="closed" value="true" />
+      <created>1718093410781</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1718093410781</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,6 +111,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Add thumbnails" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add thumbnails" />
   </component>
 </project>

@@ -88,11 +88,11 @@ def process_new_video(video_id, blog_title, thumbnail_url):
     print(f"Summary for video {video_id}: {summary}")
 
     # Crear contenido del blog con la imagen centrada al principio
-    content_with_image = f'<div style="text-align:center;"><img src="{thumbnail_url}" alt="Thumbnail"></div>\n\n{summary}'
+    content_with_image = f'[et_pb_image text_orientation="center" src="{thumbnail_url}" _builder_version="4.9.10"][/et_pb_image]\n\n<div style="color: #ffffff;">{summary}</div>'
 
     # Crear entrada en el blog en la categoría "reviews"
     category_id = 283  # ID de la categoría "reviews" en el blog
-    post_response = create_blog_post(blog_title, content_with_image, category_id)
+    post_response = create_blog_post(blog_title, thumbnail_url, summary, category_id)
     print(f"Blog post created for video {video_id}: {post_response}")
 
     return post_response
