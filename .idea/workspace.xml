@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0198f4d-7280-4a1a-aea8-63ae8230a1e3" name="Changes" comment="Adjust minor changes">
+    <list default="true" id="d0198f4d-7280-4a1a-aea8-63ae8230a1e3" name="Changes" comment="Fix: Open videos on new tab&#10;Version: 0.1">
+      <change afterPath="$PROJECT_DIR$/VERSION" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blog_post.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/blog_post.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/text_summary.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/text_summary.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/video_watcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_watcher.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,6 +87,8 @@
       <workItem from="1717937588552" duration="7834000" />
       <workItem from="1718093251297" duration="4494000" />
       <workItem from="1718151593013" duration="3386000" />
+      <workItem from="1718278454751" duration="415000" />
+      <workItem from="1718319908024" duration="1238000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -129,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718097539513</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fix: Open videos on new tab&#10;Version: 0.1">
+      <option name="closed" value="true" />
+      <created>1718278867763</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1718278867763</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +149,7 @@
     <MESSAGE value="Add extra containers to Divi" />
     <MESSAGE value="Add thumbnails" />
     <MESSAGE value="Adjust minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjust minor changes" />
+    <MESSAGE value="Fix: Open videos on new tab&#10;Version: 0.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix: Open videos on new tab&#10;Version: 0.1" />
   </component>
 </project>

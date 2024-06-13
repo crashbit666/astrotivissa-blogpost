@@ -25,7 +25,7 @@ def fetch_all_videos(channel_id, api_key):
         if not next_page_token:
             break
 
-    # Invertir la lista de videos para procesar los más antiguos primero
+    # Reverse the list of videos to get the latest videos first
     videos.reverse()
 
     return videos
@@ -41,13 +41,10 @@ def fetch_video_tags(video_id, api_key):
 
 
 def is_review_video(video):
-    keywords = ['review']
     if 'id' in video and 'videoId' in video['id']:
         video_id = video['id']['videoId']
-        title = video['snippet']['title'].lower()
-        description = video['snippet']['description'].lower()
         tags = fetch_video_tags(video_id, YOUTUBE_API_KEY)
-        return any(keyword in title or description for keyword in keywords) or 'reviews' in tags
+        return 'review' in tags
     return False
 
 
@@ -76,7 +73,7 @@ def get_unprocessed_videos(latest_videos, processed_videos):
 def watch_new_videos():
     processed_videos_path = os.path.join('data', 'processed_videos.json')
     processed_videos = load_processed_videos(processed_videos_path)
-    all_videos = fetch_all_videos(CHANNEL_ID, YOUTUBE_API_KEY)  # Llama a la función fetch_all_videos
+    all_videos = fetch_all_videos(CHANNEL_ID, YOUTUBE_API_KEY)  # Call the fetch_all_videos function
 
     new_review_videos = [video for video in get_unprocessed_videos(all_videos, processed_videos) if is_review_video(video)]
 
@@ -112,7 +109,7 @@ def process_new_video(video_id, blog_title, thumbnail_url):
 
     # Create a new blog post with review category
     category_id = 283  # Review category ID
-    video_url = f"https://www.youtube.com/watch?v={video_id}"  # Crear la URL del video de YouTube
+    video_url = f"https://www.youtube.com/watch?v={video_id}"  # Create the video URL
     post_response = create_blog_post(blog_title, thumbnail_url, video_url, summary, category_id)
     print(f"Blog post created for video {video_id}: {post_response}")
 
