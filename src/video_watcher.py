@@ -11,6 +11,26 @@ def fetch_latest_videos(channel_id, api_key):
     return videos
 
 
+def fetch_all_videos(channel_id, api_key):
+    videos = []
+    url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&channelId={channel_id}&maxResults=50&order=date&type=video&key={api_key}"
+    next_page_token = ""
+
+    while True:
+        response = requests.get(f"{url}&pageToken={next_page_token}")
+        result = response.json()
+        videos.extend(result.get('items', []))
+
+        next_page_token = result.get('nextPageToken')
+        if not next_page_token:
+            break
+
+    # Invertir la lista de videos para procesar los más antiguos primero
+    videos.reverse()
+
+    return videos
+
+
 def fetch_video_tags(video_id, api_key):
     url = f"https://www.googleapis.com/youtube/v3/videos?part=snippet&id={video_id}&key={api_key}"
     response = requests.get(url)
@@ -56,9 +76,9 @@ def get_unprocessed_videos(latest_videos, processed_videos):
 def watch_new_videos():
     processed_videos_path = os.path.join('data', 'processed_videos.json')
     processed_videos = load_processed_videos(processed_videos_path)
-    latest_videos = fetch_latest_videos(CHANNEL_ID, YOUTUBE_API_KEY)
+    all_videos = fetch_all_videos(CHANNEL_ID, YOUTUBE_API_KEY)  # Llama a la función fetch_all_videos
 
-    new_review_videos = [video for video in get_unprocessed_videos(latest_videos, processed_videos) if is_review_video(video)]
+    new_review_videos = [video for video in get_unprocessed_videos(all_videos, processed_videos) if is_review_video(video)]
 
     for video in new_review_videos:
         video_id = video['id']['videoId']
@@ -92,7 +112,8 @@ def process_new_video(video_id, blog_title, thumbnail_url):
 
     # Create a new blog post with review category
     category_id = 283  # Review category ID
-    post_response = create_blog_post(blog_title, thumbnail_url, summary, category_id)
+    video_url = f"https://www.youtube.com/watch?v={video_id}"  # Crear la URL del video de YouTube
+    post_response = create_blog_post(blog_title, thumbnail_url, video_url, summary, category_id)
     print(f"Blog post created for video {video_id}: {post_response}")
 
     return post_response
