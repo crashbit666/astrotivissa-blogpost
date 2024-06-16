@@ -12,7 +12,7 @@ def summarize_text(text):
             {"role": "system", "content": "Eres un asistente útil que proporciona resúmenes detallados en español."},
             {"role": "user", "content": f"Por favor, resume el siguiente texto en español y en primera persona y sobretodo teniendo en cuenta que será una entrada de un blog y lo que mas me interesa es el SEO. El resumen debe ser muy detallado y cubrir todos los aspectos importantes mencionados en el texto original: {text}"}
         ],
-        max_tokens=2000
+        max_tokens=3000
     )
     summary = response.choices[0].message.content.strip()
     return summary
