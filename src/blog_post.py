@@ -1,11 +1,13 @@
 import requests
-from config.settings import WORDPRESS_API_URL, JWT_TOKEN
+from config.settings import WORDPRESS_API_URL
+from src.wordpress_auth import get_jwt_token
 
 
 def create_blog_post(title, thumbnail, video_url, content, category_id):
+    jwt_token = get_jwt_token()
     url = WORDPRESS_API_URL
     headers = {
-        "Authorization": f"Bearer {JWT_TOKEN}",
+        "Authorization": f"Bearer {jwt_token}",
         "Content-Type": "application/json"
     }
 
@@ -34,11 +36,17 @@ def create_blog_post(title, thumbnail, video_url, content, category_id):
         "status": "publish"
     }
 
-    response = requests.post(url, headers=headers, json=data)
     try:
+        response = requests.post(url, headers=headers, json=data)
         response.raise_for_status()
     except requests.exceptions.HTTPError as e:
-        print(f"Failed to create blog post: {e}")
-        print(f"Response content: {response.content}")
-        raise
+        if response.status_code == 403:  # Forbidden, likely due to expired JWT
+            jwt_token = get_jwt_token()
+            headers["Authorization"] = f"Bearer {jwt_token}"
+            response = requests.post(url, headers=headers, json=data)
+            response.raise_for_status()
+        else:
+            print(f"Failed to create blog post: {e}")
+            print(f"Response content: {response.content}")
+            raise
     return response.json()
