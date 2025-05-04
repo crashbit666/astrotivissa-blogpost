@@ -1,3 +1,6 @@
+"""
+Mòdul per resumir textos utilitzant OpenAI.
+"""
 import openai
 from config.settings import OPENAI_API_KEY
 

@@ -37,4 +37,8 @@ def summarize_text_gemini(text):
     try:
         return result["candidates"][0]["content"]["parts"][0]["text"].strip()
     except (KeyError, IndexError):
-        raise RuntimeError(f"Resposta inesperada de Gemini: {result}") 
+        raise RuntimeError(f"Resposta inesperada de Gemini: {result}")
+
+"""
+Mòdul per resumir textos utilitzant Gemini.
+""" 

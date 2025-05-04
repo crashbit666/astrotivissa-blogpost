@@ -11,3 +11,8 @@ def get_jwt_token():
     response = requests.post(url, json=data)
     response.raise_for_status()
     return response.json()["token"]
+
+
+"""
+Mòdul per gestionar l'autenticació JWT amb WordPress.
+"""

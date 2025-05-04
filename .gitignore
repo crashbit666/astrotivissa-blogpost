@@ -5,3 +5,6 @@ __pycache__/
 /astrotivissa-blogpost.tar
 .idea/
 venv/
+astrotivissa_blogpost_rust/target/
+astrotivissa_blogpost_rust/Cargo.lock
+astrotivissa_blogpost_rust/.env

@@ -26,3 +26,5 @@ typing_extensions==4.12.2
 urllib3==2.2.1
 yarl==1.9.4
 youtube-transcript-api==0.6.2
+python-dateutil==2.9.0
+pytest==8.2.2

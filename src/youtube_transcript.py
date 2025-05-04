@@ -15,3 +15,8 @@ def get_video_transcript(video_id):
 
 if __name__ == "__main__":
     print("Testing get_video_transcript function:")
+
+
+"""
+Mòdul per obtenir la transcripció d'un vídeo de YouTube.
+"""

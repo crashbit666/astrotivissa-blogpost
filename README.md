@@ -23,3 +23,69 @@ Este proyecto es un esfuerzo conjunto entre Crashbit y Astrotivissa. Agradecemos
 ## Licencia
 
 Este proyecto está bajo la licencia MIT. Consulta el archivo `LICENSE` para obtener más detalles.
+
+# Astrotivissa Blogpost Automation
+
+Automatitza la creació d'entrades de blog a WordPress a partir de vídeos nous d'un canal de YouTube. El procés inclou:
+- Detecció de vídeos nous (tipus "review").
+- Extracció de la transcripció.
+- Resum amb Gemini.
+- Publicació automàtica a WordPress.
+
+## Configuració
+
+1. **Variables d'entorn** (posa-les a `.env`):
+   - `YOUTUBE_API_KEY`
+   - `CHANNEL_ID`
+   - `GEMINI_API_KEY`
+   - `WORDPRESS_API_URL`
+   - `WORDPRESS_USERNAME`
+   - `WORDPRESS_PASSWORD`
+
+2. **Instal·lació**
+   ```bash
+   python3.12 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+
+3. **Execució**
+   ```bash
+   python -m src.main
+   ```
+
+## Persistència
+Els vídeos processats es guarden a `data/processed_videos.json` amb informació detallada (ID, títol, data, estat).
+
+## Docker
+
+### Exemple docker-compose.yml
+```yaml
+version: '3.8'
+services:
+  blogpost:
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+```
+
+## Troubleshooting
+- **No es processen vídeos nous:** Comprova que les API keys i variables d'entorn són correctes.
+- **Quota excedida:** El sistema reintenta automàticament amb espera exponencial.
+- **Problemes d'autenticació a WordPress:** Revisa usuari/contrasenya i permisos de l'usuari.
+
+## Extensió
+- Modularitat: la lògica de YouTube, Gemini i WordPress està separada per facilitar el manteniment.
+- Fàcil d'afegir nous processaments o notificacions.
+
+## Tests
+Executa els tests amb:
+```bash
+pytest tests/
+```
+
+## Seguretat
+- No posis mai secrets al Dockerfile ni al codi font.
+- Utilitza fitxers `.env` i no els comparteixis públicament.

@@ -50,3 +50,7 @@ def create_blog_post(title, thumbnail, video_url, content, category_id):
             print(f"Response content: {response.content}")
             raise
     return response.json()
+
+"""
+Mòdul per crear una entrada de blog a WordPress via API REST.
+"""
