@@ -91,7 +91,7 @@ def watch_new_videos():
 
 def process_new_video(video_id, blog_title, thumbnail_url):
     from src.youtube_transcript import get_video_transcript
-    from src.text_summary import summarize_text
+    from src.text_summary_gemini import summarize_text_gemini
     from src.blog_post import create_blog_post
 
     # Obtain video transcript
@@ -103,7 +103,7 @@ def process_new_video(video_id, blog_title, thumbnail_url):
     print(f"Transcript for video {video_id}: {transcript[:100]}...")  # Print the first 100 characters of the transcript
 
     # Generate a summary of the video content
-    summary = summarize_text(transcript)
+    summary = summarize_text_gemini(transcript)
     print(f"Summary for video {video_id}: {summary}")
 
     # Not used, only for testing purposes

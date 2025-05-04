@@ -3,4 +3,5 @@ __pycache__/
 *.pyc
 .env
 /astrotivissa-blogpost.tar
-/data/processed_videos.json
+.idea/
+venv/
